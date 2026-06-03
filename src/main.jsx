@@ -126,7 +126,7 @@ function App() {
 
           <div className="hero-grid">
             <section className="hero-card yellow-card">
-              <div className="eyebrow"><Sparkles size={16}/> Saudação do dia</div>
+              <div className="eyebrow"><Sparkles size={16}/> Olá</div>
               <p className="greeting-line greeting-only">{greeting}</p>
               <p className="date-line">{formatDate(selectedWeek.start)} até {formatDate(selectedWeek.end)}</p>
               <div className="mini-stats two-stats">
