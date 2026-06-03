@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Space+Mono:wght@700&display=swap');
+
+:root {
+  --ink: #111111;
+  --cream: #fff8e8;
+  --mint: #b7dfc2;
+  --yellow: #ffd43d;
+  --pink: #f5b2ea;
+  --blue: #58c3ec;
+  --peach: #ffd6ad;
+  --coral: #ff986f;
+  --shadow: 5px 5px 0 var(--ink);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background:
+    linear-gradient(120deg, var(--blue) 0 29%, transparent 29% 100%),
+    linear-gradient(120deg, transparent 0 46%, var(--peach) 46% 62%, transparent 62% 100%),
+    linear-gradient(120deg, transparent 0 73%, var(--coral) 73% 100%),
+    #f4a4c2;
+}
+
+button, select { font: inherit; color: inherit; }
+
+.page-shell { width: min(1180px, 100%); margin: 0 auto; padding: 32px 20px; }
+
+.app-frame {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow);
+  background: var(--mint);
+  min-height: 720px;
+}
+
+.side-bar { padding: 20px; border-right: 3px solid var(--ink); display: flex; flex-direction: column; gap: 28px; }
+.brand { font-family: 'Space Mono', monospace; font-size: 20px; display: flex; align-items: center; gap: 10px; }
+.brand-box { border: 2px solid var(--ink); background: var(--cream); padding: 0 4px; }
+nav { display: grid; gap: 8px; }
+nav a { display: flex; align-items: center; gap: 8px; padding: 12px; font-weight: 800; text-decoration: none; color: var(--ink); }
+nav a.active { background: var(--ink); color: white; }
+.side-bottom { margin-top: auto; font-weight: 900; }
+
+.content-card { margin: 24px; padding: 24px; border: 3px solid var(--ink); background: var(--cream); }
+.top-row { display: grid; grid-template-columns: 44px 1fr 44px; gap: 12px; align-items: end; }
+.arrow { height: 44px; border: 2px solid var(--ink); background: white; box-shadow: 3px 3px 0 var(--ink); cursor: pointer; }
+.arrow:disabled { opacity: .45; cursor: not-allowed; }
+.week-picker { display: grid; gap: 8px; font-weight: 900; }
+.week-picker span { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+select { width: 100%; border: 2px solid var(--ink); background: white; padding: 12px; font-weight: 800; }
+
+.hero-grid { display: grid; grid-template-columns: 1.25fr .85fr; gap: 24px; margin-top: 28px; }
+.hero-card, .work-card, .tab-card { border: 3px solid var(--ink); box-shadow: var(--shadow); }
+.yellow-card { background: var(--yellow); padding: 24px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 900; text-transform: uppercase; letter-spacing: .06em; }
+h1 { margin: 16px 0 6px; font-family: 'Space Mono', monospace; font-size: clamp(46px, 8vw, 86px); line-height: .92; }
+.greeting-line { font-family: 'Space Mono', monospace; font-size: clamp(30px, 5vw, 56px); line-height: 1; font-weight: 900; margin: 18px 0 10px; }
+.greeting-only { font-size: clamp(64px, 10vw, 112px); letter-spacing: -0.06em; margin: 28px 0 22px; }
+.date-line { font-size: clamp(20px, 3vw, 32px); font-weight: 900; margin: 0 0 24px; }
+.mini-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.mini-stats.two-stats { grid-template-columns: repeat(2, 1fr); }
+.mini-stats span { border: 2px solid var(--ink); padding: 12px; font-weight: 900; background: rgba(255,255,255,.35); }
+.work-card { background: white; padding: 18px; }
+h2, h3 { margin: 0; font-family: 'Space Mono', monospace; }
+.assignment-list { display: grid; gap: 12px; margin-top: 16px; }
+.assignment { display: grid; grid-template-columns: 48px 1fr; gap: 12px; align-items: center; border: 2px solid var(--ink); padding: 12px; background: var(--cream); }
+.assignment strong, .assignment span { display: block; }
+.assignment span { font-size: 24px; font-weight: 900; }
+.task-icon { width: 42px; height: 42px; border: 2px solid var(--ink); display: grid; place-items: center; background: white; }
+.banheiro { background: #c8eeff; }
+.cozinha { background: #ffdba7; }
+.descanso { background: #ddd2ff; }
+.section-title-row { margin-top: 36px; display: flex; justify-content: space-between; align-items: center; }
+.section-title-row h2 { font-size: clamp(28px, 5vw, 44px); }
+.section-title-row span { border: 2px solid var(--ink); padding: 8px 12px; background: white; font-weight: 900; }
+.tabs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px; }
+.tab-card { padding: 18px; }
+.pink-card { background: var(--pink); }
+.cream-card { background: white; }
+.list-row, .agreement { display: grid; gap: 12px; align-items: start; margin-top: 14px; border: 2px solid var(--ink); background: rgba(255,255,255,.65); padding: 12px; }
+.list-row { grid-template-columns: 96px 1fr; }
+.agreement { grid-template-columns: 24px 1fr; }
+.name-pill { background: var(--ink); color: white; font-weight: 900; padding: 8px 10px; text-align: center; }
+p { margin: 0; font-weight: 800; line-height: 1.35; }
+
+@media (max-width: 820px) {
+  .page-shell { padding: 12px; }
+  .app-frame { grid-template-columns: 1fr; min-height: auto; }
+  .side-bar { border-right: 0; border-bottom: 3px solid var(--ink); padding: 14px; gap: 12px; }
+  nav { grid-template-columns: 1fr; }
+  nav a { justify-content: center; font-size: 0; padding: 10px; }
+  nav a svg { width: 20px; height: 20px; }
+  .side-bottom { display: none; }
+  .content-card { margin: 12px; padding: 14px; }
+  .hero-grid, .tabs-grid { grid-template-columns: 1fr; gap: 16px; }
+  .mini-stats { grid-template-columns: 1fr; }
+  .top-row { grid-template-columns: 40px 1fr 40px; gap: 8px; }
+  h1 { font-size: 48px; }
+  .date-line { font-size: 20px; }
+  .section-title-row { align-items: flex-start; gap: 12px; }
+  .list-row { grid-template-columns: 1fr; }
+}
+
+
+.week-picker {
+  min-width: 0;
+  flex: 1;
+}
+
+.week-picker select {
+  width: 100%;
+  min-width: 0;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top-row {
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .top-row {
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+  }
+
+  .week-picker select {
+    font-size: 13px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
