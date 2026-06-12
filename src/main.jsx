@@ -1,19 +1,26 @@
 import React, { useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { CalendarDays, ChevronLeft, ChevronRight, Sparkles, ClipboardList, Home, Utensils, Bath, Moon, CheckCircle2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles, ClipboardList, Utensils, Bath, Moon, CheckCircle2 } from 'lucide-react';
 import './style.css';
 
-const PEOPLE = ['Zé', 'Gabi', 'Mãe'];
+const PEOPLE = ['Matheus', 'Gabi', 'Mãe'];
+
 const TASKS = [
   { key: 'banheiro', label: 'Limpar banheiro', icon: Bath },
   { key: 'cozinha', label: 'Limpar cozinha', icon: Utensils },
   { key: 'descanso', label: 'Descanso', icon: Moon },
 ];
 
+const ROTATION = [
+  { banheiro: 'Matheus', cozinha: 'Mãe', descanso: 'Gabi' },
+  { banheiro: 'Gabi', cozinha: 'Matheus', descanso: 'Mãe' },
+  { banheiro: 'Mãe', cozinha: 'Gabi', descanso: 'Matheus' },
+];
+
 const FIXED_TASKS = [
   { person: 'Gabi', task: 'Secar louça e tirar o lixo' },
   { person: 'Mãe', task: 'Varrer' },
-  { person: 'Zé', task: 'Dobrar e guardar roupa' },
+  { person: 'Matheus', task: 'Dobrar e guardar roupa' },
 ];
 
 const AGREEMENTS = [
@@ -53,21 +60,9 @@ function buildWeeks() {
   return weeks;
 }
 
-function mod(number, size) {
-  return ((number % size) + size) % size;
-}
-
 function getAssignments(weekIndex) {
-  // Semana 1: Zé banheiro, Gabi cozinha, Mãe descanso.
-  // Semana 2: Mãe banheiro, Zé cozinha, Gabi descanso.
-  // Semana 3: Gabi banheiro, Mãe cozinha, Zé descanso.
-  // Depois repete sem quebrar nas semanas maiores que 3.
-  const banheiro = PEOPLE[mod(0 - weekIndex, PEOPLE.length)];
-  const cozinha = PEOPLE[mod(1 - weekIndex, PEOPLE.length)];
-  const descanso = PEOPLE[mod(2 - weekIndex, PEOPLE.length)];
-  return { banheiro, cozinha, descanso };
+  return ROTATION[weekIndex % ROTATION.length];
 }
-
 
 function getGreeting() {
   const hour = new Date().getHours();
@@ -131,7 +126,7 @@ function App() {
               <p className="date-line">{formatDate(selectedWeek.start)} até {formatDate(selectedWeek.end)}</p>
               <div className="mini-stats two-stats">
                 <span>Segunda → domingo</span>
-                <span>Ordem: Zé, Gabi, Mãe</span>
+                <span>Ordem: Matheus, Gabi, Mãe</span>
               </div>
             </section>
 
